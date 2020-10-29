@@ -10,7 +10,7 @@
 
 
 ## License
-Please see License file for details.
+Please see License file for details. (Academic Free License ("AFL") v. 3.0)
 
 ## Changelog
 8/27/2020 - Project started
