@@ -224,6 +224,17 @@ namespace ServiceDesk.Data
 
             var randGenerator = new Random();
 
+            string[] employeeNotes = {"Employee is easy to work with.",
+                "Employee is technologically deficient",
+                "Employee is Karen, have boss ready",
+                "Problem is already being worked on",
+                "Employee has history not knowing how to power monitor on",
+                "Terrible Employee to work with"};
+
+            int nIndex = randGenerator.Next(employeeNotes.Length);
+
+            string noteDes = employeeNotes[nIndex];
+
             foreach (var employee in _employee)
             {
                 employee.DateAdded = DateTime.Now.AddMonths(randGenerator.Next(-24, -12));
@@ -262,7 +273,7 @@ namespace ServiceDesk.Data
                         Description = $"Super awesome ticket {i}",
                         Complexity = i % 3 + 1,
                         IsUrgent = randGenerator.Next(0, 5) == 0,
-                        Notes = "Terrible Employee to work with",
+                        Notes = noteDes,
                         Open = randGenerator.Next(0, 2) == 0,
                         DateAdded = DateTime.Now.AddMonths(randGenerator.Next(-24, -12))
                     });
