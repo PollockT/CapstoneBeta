@@ -28,3 +28,9 @@ Please see License file for details. (Academic Free License ("AFL") v. 3.0)
 10/28/2020 - Project Moves out of developement into Beta, finished but unpolished.
 
 10/29/2020 - License Added, yml theme removed, README.md updated.
+			 SeedData.cs modified so random generation will have more elements of randomness too it.
+			 Generation of random element is only producing an index value out of the rand() for one value
+			 however so it needs worked on. Ability to change themes is approached.
+
+10/30/2020 - String Lists for employeeNotes and ticketDescriptions moved to inside the foreach loops, to generate
+			unique values.
