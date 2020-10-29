@@ -224,16 +224,8 @@ namespace ServiceDesk.Data
 
             var randGenerator = new Random();
 
-            string[] employeeNotes = {"Employee is easy to work with.",
-                "Employee is technologically deficient",
-                "Employee is Karen, have boss ready",
-                "Problem is already being worked on",
-                "Employee has history not knowing how to power monitor on",
-                "Terrible Employee to work with"};
 
-            int nIndex = randGenerator.Next(employeeNotes.Length);
-
-            string noteDes = employeeNotes[nIndex];
+            
 
             foreach (var employee in _employee)
             {
@@ -263,17 +255,43 @@ namespace ServiceDesk.Data
 
             foreach (var employee in context.Employees)
             {
+                ///<summary>Random ticket Generation</summary>
                 var ticketCount = randGenerator.Next(0, 15);
                 for (var i = 0; i < ticketCount; i++)
                 {
+                    //Random generation for ticket description list
+                    string[] ticketDescription = {
+                        "Network connection down",
+                        "Cant Access login",
+                        "Computer running slow",
+                        "Sound not working",
+                        "Computer wont power up",
+                        "PC wont turn on",
+                        "PC randomly shutting off"
+                     };
+                    int dIndex = randGenerator.Next(ticketDescription.Length);
+                    string descriptionValue = ticketDescription[dIndex];
+                    //Random generation for ticket description list
+                    // Random generation for employee notes list on ticket
+                    string[] employeeNotes = {
+                        "Employee is easy to work with.",
+                        "Employee is technologically deficient",
+                        "Employee is Karen, have boss ready",
+                        "Problem is already being worked on",
+                        "Employee has history not knowing how to power monitor on",
+                        "Terrible Employee to work with"};
+                    int nIndex = randGenerator.Next(employeeNotes.Length);
+                    string notesValue = employeeNotes[nIndex];
+                    // Random generation for employee notes list on ticket
+
                     context.Tickets.Add(new Ticket
                     {
                         EmployeeId = employee.Id,
                         Title = $"{employee.Department}: Case {i}",
-                        Description = $"Super awesome ticket {i}",
+                        Description = descriptionValue,
                         Complexity = i % 3 + 1,
                         IsUrgent = randGenerator.Next(0, 5) == 0,
-                        Notes = noteDes,
+                        Notes = notesValue,
                         Open = randGenerator.Next(0, 2) == 0,
                         DateAdded = DateTime.Now.AddMonths(randGenerator.Next(-24, -12))
                     });
@@ -282,8 +300,10 @@ namespace ServiceDesk.Data
 
             context.SaveChanges();
 
+            
             foreach (var ticket in context.Tickets)
             {
+                ///<summary>Time spent on ticket random generation</summary>
                 var workTimesCount = randGenerator.Next(0, 10);
                 for (var i = 0; i < workTimesCount; i++)
                 {
