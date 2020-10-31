@@ -37,4 +37,4 @@ Please see License file for details. (Academic Free License ("AFL") v. 3.0)
 			 -Front end access for Employees to create their own tickets desired.
 
 10/30/2020 - String Lists for employeeNotes and ticketDescriptions moved to inside the foreach loops, to generate
-			unique values.
+			unique values. Controller Summaries modified to point, GETS grab views, POST passes data
