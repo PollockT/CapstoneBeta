@@ -32,7 +32,7 @@ namespace ServiceDesk.Controllers
         /// <summary>
         /// Gets the report view
         /// </summary>
-        /// <returns>The report view</returns>
+        /// <returns>Views\Reports\All.cshmtl</returns>
         [HttpGet]
         public async Task<IActionResult> All()
         {

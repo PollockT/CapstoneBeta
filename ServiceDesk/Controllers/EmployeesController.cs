@@ -36,7 +36,7 @@ namespace ServiceDesk.Controllers
         /// <summary>
         /// Shows all employees
         /// </summary>
-        /// <returns>clients page</returns>
+        /// <returns>Views\Employees\All.cshtml</returns>
         [HttpGet]
         public async Task<IActionResult> All()
         {
@@ -50,7 +50,7 @@ namespace ServiceDesk.Controllers
         /// Opens the employee's details
         /// </summary>
         /// <param name="id">The id of the employee</param>
-        /// <returns>The employee</returns>
+        /// <returns>Views\Employees\Open.cshtml</returns>
         [HttpGet]
         public async Task<IActionResult> Open([FromRoute] Guid id)
         {
@@ -69,7 +69,7 @@ namespace ServiceDesk.Controllers
         /// <summary>
         /// Gets the add employee view
         /// </summary>
-        /// <returns>The add employee view.</returns>
+        /// <returns>View\Employee\Add.cshtml</returns>
         [HttpGet]
         public IActionResult Add()
         {
@@ -94,7 +94,7 @@ namespace ServiceDesk.Controllers
         /// <summary>
         /// Gets view for adding a ticket.
         /// </summary>
-        /// <returns>The view.</returns>
+        /// <returns>Views\Employees\AddTicket.cshtml</returns>
         [HttpGet]
         public IActionResult AddTicket([FromRoute] Guid id)
         {

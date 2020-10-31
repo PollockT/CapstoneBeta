@@ -35,7 +35,7 @@ namespace ServiceDesk.Controllers
         /// <summary>
         /// Gets all technicians
         /// </summary>
-        /// <returns>A list of all technicians</returns>
+        /// <returns>Views\Technicians\All.cshtml</returns>
         [HttpGet]
         public async Task<IActionResult> All()
         {
@@ -46,7 +46,7 @@ namespace ServiceDesk.Controllers
         /// <summary>
         /// Gets the view for adding a technician
         /// </summary>
-        /// <returns>The add technician view</returns>
+        /// <returns>Views\Technicians\Add.cshtml</returns>
         [HttpGet]
         public IActionResult Add()
         {

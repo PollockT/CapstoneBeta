@@ -27,7 +27,8 @@ namespace ServiceDesk
         /// </summary>
         /// <param name="env">The hosting environment</param>
         /// <param name="config">The configuration settings for the application</param>
-        public Startup(IHostingEnvironment env, IConfiguration config)
+        public Startup(IHostingEnvironment env, 
+                       IConfiguration config)
         {
             _hostingEnvironment = env;
             _configuration = config;
@@ -66,7 +67,11 @@ namespace ServiceDesk
         /// <param name="logger"></param>
         /// <param name="applicationLifetime"></param>
         /// <param name="userManager"></param>
-        public void Configure(IApplicationBuilder app, ServiceDeskContext context, ILogger<Startup> logger, IApplicationLifetime applicationLifetime, UserManager<Technician> userManager)
+        public void Configure(IApplicationBuilder app,
+                              ServiceDeskContext context,
+                              ILogger<Startup> logger,
+                              IApplicationLifetime applicationLifetime,
+                              UserManager<Technician> userManager)
         {
             if (_hostingEnvironment.IsDevelopment())
             {

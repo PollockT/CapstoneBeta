@@ -37,7 +37,7 @@ namespace ServiceDesk.Controllers
         /// Used to view all tickets in queue
         /// </summary>
         /// <param name="includeClosed">boolean for including closed tickets</param>
-        /// <returns>view list of ordered tickets</returns>
+        /// <returns>Views\Tickets\All.cshtml</returns>
         [HttpGet]
         public async Task<IActionResult> All([FromQuery] bool includeClosed = false)
         {
@@ -60,7 +60,7 @@ namespace ServiceDesk.Controllers
         /// Opens a ticket
         /// </summary>
         /// <param name="id">unique id of ticket</param>
-        /// <returns>view of the ticket</returns>
+        /// <returns>Views\Tickets\Open.cshtml</returns>
         [HttpGet]
         public async Task<IActionResult> Open([FromRoute] Guid id)
         {
@@ -74,7 +74,7 @@ namespace ServiceDesk.Controllers
         /// Open a ticket for editiing
         /// </summary>
         /// <param name="id">unique id of ticket</param>
-        /// <returns>view of the ticket to edit</returns>
+        /// <returns>Views\Tickets\Edit.cshtml</returns>
         [HttpGet]
         public async Task<IActionResult> Edit([FromRoute] Guid id)
         {
@@ -119,7 +119,7 @@ namespace ServiceDesk.Controllers
         /// Open the page for adding time to a ticket.
         /// </summary>
         /// <param name="id">The id of the ticket.</param>
-        /// <returns>The add time view</returns>
+        /// <returns>Views\Tickets\AddTime.cs</returns>
         [HttpGet]
         public async Task<IActionResult> AddTime([FromRoute] Guid id)
         {
@@ -165,7 +165,7 @@ namespace ServiceDesk.Controllers
         /// Gets bill.
         /// </summary>
         /// <param name="id">The id for the ticket</param>
-        /// <returns>The bill</returns>
+        /// <returns>Views\Tickets\Bill.cshtml</returns>
         [HttpGet]
         public async Task<IActionResult> Bill([FromRoute] Guid id)
         {

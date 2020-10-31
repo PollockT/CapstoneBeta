@@ -34,7 +34,7 @@ namespace ServiceDesk.Controllers
         /// <summary>
         /// Handles logout
         /// </summary>
-        /// <returns>login page</returns>
+        /// <returns>Views\Account\Login.cshtml</returns>
         [HttpGet]
         public async Task<IActionResult> Login()
         {
@@ -46,7 +46,7 @@ namespace ServiceDesk.Controllers
         /// <summary>
         /// Logs the user out.
         /// </summary>
-        /// <returns>Redirect to login</returns>
+        /// <returns>Views\Account\Login.cshtml</returns>
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
@@ -59,7 +59,7 @@ namespace ServiceDesk.Controllers
         /// </summary>
         /// <param name="loginRequest">login information</param>
         /// <param name="returnUrl">URL to return to after login</param>
-        /// <returns>login request page</returns>
+        /// <returns>feeds account info to Login.cshtml</returns>
         [HttpPost]
         public async Task<IActionResult> Login([FromForm] LoginRequest loginRequest, [FromQuery] string returnUrl = null)
         {
@@ -87,9 +87,9 @@ namespace ServiceDesk.Controllers
         }
 
         /// <summary>
-        /// Denies access
+        /// Denies access with wrong credientials
         /// </summary>
-        /// <returns>Access denied page</returns>
+        /// <returns>Views\Account\AccessDenied.cshtml</returns>
         [HttpGet]
         public IActionResult AccessDenied()
         {
