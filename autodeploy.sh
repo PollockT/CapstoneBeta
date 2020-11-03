@@ -1,6 +1,13 @@
 #!/bin/bash
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
+sudo apt-get install apache
+sudo apt-get install apache2
 
+nodejs -v
 
+sudo systemctl start apache2.service
 # Pull the repo and act on the boolean value created by grep
 git -C /home/repo/ServiceDesk fetch
 if git -C /home/repo/ServiceDesk pull | grep -Fxq 'Already up-to-date.'
