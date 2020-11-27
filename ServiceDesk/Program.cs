@@ -17,7 +17,7 @@ using ServiceDesk.Controllers;
 namespace ServiceDesk
 {
     /// <summary>
-    /// Our program
+    /// The Program
     /// </summary>
     public class Program
     {
@@ -28,29 +28,21 @@ namespace ServiceDesk
         public static void Main(string[] args)
         {
             var host = BuildWebHost(args);
-
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-
                 var context = services.GetRequiredService<ServiceDeskContext>();
                 var configuration = services.GetRequiredService<IConfiguration>();
                 var userManager = services.GetRequiredService<UserManager<Technician>>();
                 var roleManager = services.GetService<RoleManager<IdentityRole>>();
-
-                if (configuration.GetValue<bool>("useSeedData"))
-                {
-                    SeedData.Initialize(context, userManager, roleManager);
-                }
-                else
-                {
+                if (configuration.GetValue<bool>("useSeedData")){SeedData.Initialize(context, userManager, roleManager);}
+                else{
                     context.Database.Migrate();
                     var role = roleManager.FindByNameAsync(DataConstants.AdministratorRole).Result;
                     if (role == null)
                     {
                         roleManager.CreateAsync(new IdentityRole(DataConstants.AdministratorRole));
-                    }
-                }
+                    }}
                 var admin = userManager.FindByNameAsync(DataConstants.RootUsername).Result;
                 if (admin == null)
                 {
@@ -69,10 +61,8 @@ namespace ServiceDesk
                     userManager.AddToRoleAsync(admin, DataConstants.AdministratorRole).Wait();
                 }
             }
-
             host.Run();
         }
-
         /// <summary>
         /// builds the web host
         /// </summary>

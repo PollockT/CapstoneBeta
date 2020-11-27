@@ -19,9 +19,7 @@ namespace ServiceDesk
     public class Startup
     {
         private IHostingEnvironment _hostingEnvironment { get; set; }
-
         private IConfiguration _configuration { get; set; }
-
         /// <summary>
         /// Creates a new instance of this class
         /// </summary>
@@ -33,7 +31,6 @@ namespace ServiceDesk
             _hostingEnvironment = env;
             _configuration = config;
         }
-
         /// <summary>
         /// Configures the services for this application
         /// </summary>
@@ -42,11 +39,8 @@ namespace ServiceDesk
         {
             
             services.AddMvc();
-
-            services.AddDbContext<ServiceDeskContext>(options => options.UseSqlite(_configuration["connectionString"]));
-
+            services.AddDbContext<ServiceDeskContext>(options => options.UseSqlServer(_configuration["connectionString"]));
             services.AddIdentity<Technician, IdentityRole>().AddEntityFrameworkStores<ServiceDeskContext>().AddDefaultTokenProviders();
-
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -55,10 +49,8 @@ namespace ServiceDesk
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequiredUniqueChars = 1;
-            });
-            
+            });               
         }
-
         /// <summary>
         /// Configures the application pipeline and pre-startup operations
         /// </summary>
@@ -73,22 +65,14 @@ namespace ServiceDesk
                               IApplicationLifetime applicationLifetime,
                               UserManager<Technician> userManager)
         {
-            if (_hostingEnvironment.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
+            if (_hostingEnvironment.IsDevelopment()){app.UseDeveloperExceptionPage();}
+            else{
                 app.UseForwardedHeaders(new ForwardedHeadersOptions
                 {
                     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-                });
-            }
-            
+                });}            
             app.UseStaticFiles();
-
             app.UseAuthentication();
-
             app.UseMvc(routes =>
             {                
                 routes.MapRoute(

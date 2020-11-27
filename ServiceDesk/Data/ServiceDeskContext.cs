@@ -14,7 +14,7 @@ namespace ServiceDesk.Data
     public class ServiceDeskContext : IdentityDbContext<Technician>
     {
         /// <summary>
-        /// The collection of clients
+        /// The collection of employees
         /// </summary>
         public DbSet<Employee> Employees { get; set; }
 
