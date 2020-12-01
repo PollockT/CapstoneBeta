@@ -39,7 +39,7 @@ namespace ServiceDesk
         {
             
             services.AddMvc();
-            services.AddDbContext<ServiceDeskContext>(options => options.UseSqlServer(_configuration["connectionString"]));
+            services.AddDbContext<ServiceDeskContext>(options => options.UseSqlite(_configuration["connectionString"]));
             services.AddIdentity<Technician, IdentityRole>().AddEntityFrameworkStores<ServiceDeskContext>().AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>
             {
