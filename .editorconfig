@@ -1,7 +1,4 @@
 ﻿[*.cs]
 
-# CS1591: Missing XML comment for publicly visible type or member
-dotnet_diagnostic.CS1591.severity = silent
-
-# CS1587: XML comment is not placed on a valid language element
-dotnet_diagnostic.CS1587.severity = silent
+# IDE0005: Using directive is unnecessary.
+dotnet_diagnostic.IDE0005.severity = none
