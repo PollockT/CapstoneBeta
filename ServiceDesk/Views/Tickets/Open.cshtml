@@ -35,7 +35,7 @@
     Company: @Model.Employee.Department <br>
     Phone: @Model.Employee.PhoneNumber <br>
     Email: @Model.Employee.EmailAddress <br>
-    <a asp-action="Open" asp-controller="Clients" asp-route-id="@Model.Employee.Id">More Information</a>
+    <a asp-action="Open" asp-controller="Employees" asp-route-id="@Model.Employee.Id">More Information</a>
 </p>
 
 <a asp-action="Bill" asp-route-id="@Model.Ticket.Id">Generate Bill</a>
